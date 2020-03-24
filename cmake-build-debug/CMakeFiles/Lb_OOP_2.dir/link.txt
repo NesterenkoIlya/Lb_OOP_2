@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Lb_OOP_2.dir/main.cpp.o CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.o  -o Lb_OOP_2 
