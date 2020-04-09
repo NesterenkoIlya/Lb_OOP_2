@@ -1,17 +1,17 @@
 #include "Matrix.h"
-#include <cassert>
 
 /*
  * КОНСТРУКТОРЫ
  */
+
 //Конструктор по умолчанию
 Matrix::Matrix() {
+    counter++;
     random = 26;
     Matrix_create();
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
             Mtrx[i][j]=rand()%random;
-    counter++;
 }
 
 /*
@@ -19,12 +19,12 @@ Matrix::Matrix() {
  * При вызове позволяет указать в каком диапазоне буду элементы матрицы
  */
 Matrix::Matrix(int r) {
+    counter++;
     random = r;
     Matrix_create();
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
             Mtrx[i][j]=rand()%random;
-    counter++;
 }
 
 /*
@@ -33,11 +33,11 @@ Matrix::Matrix(int r) {
  * и проинициальзировать переменные size и random соответственно
  */
 Matrix::Matrix(int s, int r) : size(s), random(r) {
+    counter++;
     Matrix_create();
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
             Mtrx[i][j] = rand()%random;
-    counter++;
 }
 
 /*
@@ -47,13 +47,13 @@ Matrix::Matrix(int s, int r) : size(s), random(r) {
  * random инициализируется в теле конструктора
  */
 Matrix::Matrix(const Matrix &matrix) {
+    counter++;
     random = matrix.random;
     Matrix_create();
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
             Mtrx[i][j] = rand() % random;
-    cout << "Copy constructor worked here!\n";
-    counter++;
+    cout << "Copy constructor worked here!\n\n";
 }
 
 /*
@@ -77,56 +77,76 @@ void Matrix::Matrix_print() {
 }
 
 //Сумма матриц
-void Matrix::Matrix_sum(Matrix& b, Matrix& res) {
-    if(!(size == b.size && size == res.size && b.size == res.size)) {
-        cout << "Sizes doesn't match -> Sum imposible" << endl;
+void Matrix::Matrix_sum(Matrix& b, Matrix* res) {
+    if (size != b.size) {
+        cout << "Sizes must be equal -> Sum imposible\n";
         return;
     }
-        for (int i(0); i < size; i++)
-            for (int j(0); j < size; j++)
-                res.Mtrx[i][j] = Mtrx[i][j] + b.Mtrx[i][j];
-        res.Matrix_print();
+    res = new Matrix(size, 1);
 
+    for (int i(0); i < size; i++)
+        for (int j(0); j < size; j++)
+            res->Mtrx[i][j] = Mtrx[i][j] + b.Mtrx[i][j];
+
+    res->Matrix_print();
+
+    delete res;
+    res = nullptr;
 }
 
 //Сумма матрицы и числа
-void Matrix::Matrix_sum (int num, Matrix& res) {
+void Matrix::Matrix_sum (int num, Matrix* res) {
+    res = new Matrix(size, 1);
+
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
-            res.Mtrx[i][j] = Mtrx[i][j] + num;
-    res.Matrix_print();
+            res->Mtrx[i][j] = Mtrx[i][j] + num;
+
+    res->Matrix_print();
+
+    delete res;
+    res = nullptr;
 }
 
 //Умножение матриц
-void Matrix::Matrix_inc (Matrix& b, Matrix& res) {
-    if(!(size == b.size && size == res.size && b.size == res.size)) {
-        cout << "Sizes doesn't match -> Increase imposible" << endl;
+void Matrix::Matrix_inc (Matrix& b, Matrix* res) {
+    if (size != b.size) {
+        cout << "Sizes doesn't match -> Increase imposible\n";
         return;
     }
+
+    res = new Matrix(size, 1);
+
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++) {
-            res.Mtrx[i][j] = 0;
+            res->Mtrx[i][j] = 0;
             for(int k(0); k < size; k++)
-                res.Mtrx[i][j] += Mtrx[i][k] * b.Mtrx[k][j];
+                res->Mtrx[i][j] += Mtrx[i][k] * b.Mtrx[k][j];
         }
-    res.Matrix_print();
+
+    res->Matrix_print();
+
+    delete res;
+    res = nullptr;
 }
 
 //Умножение матрицы на число
-void Matrix::Matrix_inc (int num, Matrix& res) {
+void Matrix::Matrix_inc (int num, Matrix* res) {
+    res = new Matrix(size, 1);
 
-    for (int i(0); i < 3; i++)
-        for (int j(0); j < 3; j++)
-            res.Mtrx[i][j] = Mtrx[i][j] * num;
-    res.Matrix_print();
+    for (int i(0); i < size; i++)
+        for (int j(0); j < size; j++)
+            res->Mtrx[i][j] = Mtrx[i][j] * num;
+
+    res->Matrix_print();
+
+    delete res;
+    res = nullptr;
 }
 
 //Сранвнение мтариц
 bool Matrix::Matrix_cmp (Matrix& b) {
-    if(size != b.size) {
-        cout << "Sizes doesn't match -> Sum imposible" << endl;
-        return 0;
-    }
+    if(size != b.size) return 0;
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
             if (Mtrx[i][j] != b.Mtrx[i][j])
@@ -164,20 +184,22 @@ void Matrix::get_counter() {
 /*
  * ПЕРЕГРУЗКИ ОПЕРАЦИЙ
  */
-//
+//Перегрузка оператора << для вывода матрицы в консоль
 ostream& operator<<(ostream &out, const Matrix &m) {
+    out << "Overloaded operator << for outputting Mtrx\n";
     for (int i(0); i < m.size; i++) {
         for (int j(0); j < m.size; j++)
             out<<m.Mtrx[i][j]<<" ";
         out<<endl;
     }
-    out<<endl;
+    out << endl;
 
     return out;
 }
 
-//
+//Перегрузка оператора >> для ввода матрицы с консоли
 istream& operator>>(istream &in, Matrix &m) {
+    cout << "Overloaded operator >> for inputting Mtrx\n";
     cout << "Введите Матрицу " << m.size << "x" << m.size << ":\n";
     for (int i(0); i < m.size; i++) {
         for (int j(0); j < m.size; j++)
@@ -188,7 +210,7 @@ istream& operator>>(istream &in, Matrix &m) {
     return in;
 }
 
-//
+//Перегрузка оператора = для копирования значений матрицы из одного объекта в другой
 Matrix& Matrix::operator=(Matrix &matrix) {
     if(size == matrix.size)
         for (int i(0); i < size; i++)
@@ -197,33 +219,37 @@ Matrix& Matrix::operator=(Matrix &matrix) {
     else
         cout << "Sizes doesn't match" << endl;
 
+    cout << "Overloaded operator = for Matrix obj and Matrix obj\n";
+
     return *this;
 }
 
-//
+//Перегрузка оператора + для суммирования матрицы с числом
 void Matrix::operator+ (int num) {
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
             Mtrx[i][j] += num;
+    cout << "Overloaded operator + for Matrix obj and num\n";
 }
 
-//
+//Перегрузка оператора + для суммирования одной матрицы с другой
 void Matrix::operator+ (const Matrix &matrix) {
+    if (size != matrix.size) {
+        cout << "Sizes must be equal -> Sum imposible\n";
+        return;
+    }
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
             Mtrx[i][j] += matrix.Mtrx[i][j];
+    cout << "Overloaded operator + for Matrix obj and Matrix obj\n";
 }
 
-//
+//Перегрузка оператора * для умножения матрицы на число
 void Matrix::operator* (int num) {
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
             Mtrx[i][j] *= num;
-}
-
-//
-void Matrix::operator* (const Matrix &Matrix) {
-
+    cout << "Overloaded operator * for Matrix obj and num\n";
 }
 
 //Деструктор
