@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/athet/CLionProjects/Lb_OOP_2/Matrix.cpp" "/home/athet/CLionProjects/Lb_OOP_2/cmake-build-debug/CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.o"
-  "/home/athet/CLionProjects/Lb_OOP_2/main.cpp" "/home/athet/CLionProjects/Lb_OOP_2/cmake-build-debug/CMakeFiles/Lb_OOP_2.dir/main.cpp.o"
+  "/home/athet/CLionProjects/git/Lb_OOP_2/Matrix.cpp" "/home/athet/CLionProjects/git/Lb_OOP_2/cmake-build-debug/CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.o"
+  "/home/athet/CLionProjects/git/Lb_OOP_2/main.cpp" "/home/athet/CLionProjects/git/Lb_OOP_2/cmake-build-debug/CMakeFiles/Lb_OOP_2.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

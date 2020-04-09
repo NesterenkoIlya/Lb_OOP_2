@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/clion/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/107/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /opt/clion/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/107/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/athet/CLionProjects/Lb_OOP_2
+CMAKE_SOURCE_DIR = /home/athet/CLionProjects/git/Lb_OOP_2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/athet/CLionProjects/Lb_OOP_2/cmake-build-debug
+CMAKE_BINARY_DIR = /home/athet/CLionProjects/git/Lb_OOP_2/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Lb_OOP_2.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/Lb_OOP_2.dir/flags.make
 
 CMakeFiles/Lb_OOP_2.dir/main.cpp.o: CMakeFiles/Lb_OOP_2.dir/flags.make
 CMakeFiles/Lb_OOP_2.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/athet/CLionProjects/Lb_OOP_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Lb_OOP_2.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lb_OOP_2.dir/main.cpp.o -c /home/athet/CLionProjects/Lb_OOP_2/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/athet/CLionProjects/git/Lb_OOP_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Lb_OOP_2.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lb_OOP_2.dir/main.cpp.o -c /home/athet/CLionProjects/git/Lb_OOP_2/main.cpp
 
 CMakeFiles/Lb_OOP_2.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lb_OOP_2.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/athet/CLionProjects/Lb_OOP_2/main.cpp > CMakeFiles/Lb_OOP_2.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/athet/CLionProjects/git/Lb_OOP_2/main.cpp > CMakeFiles/Lb_OOP_2.dir/main.cpp.i
 
 CMakeFiles/Lb_OOP_2.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lb_OOP_2.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/athet/CLionProjects/Lb_OOP_2/main.cpp -o CMakeFiles/Lb_OOP_2.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/athet/CLionProjects/git/Lb_OOP_2/main.cpp -o CMakeFiles/Lb_OOP_2.dir/main.cpp.s
 
 CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.o: CMakeFiles/Lb_OOP_2.dir/flags.make
 CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.o: ../Matrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/athet/CLionProjects/Lb_OOP_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.o -c /home/athet/CLionProjects/Lb_OOP_2/Matrix.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/athet/CLionProjects/git/Lb_OOP_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.o -c /home/athet/CLionProjects/git/Lb_OOP_2/Matrix.cpp
 
 CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/athet/CLionProjects/Lb_OOP_2/Matrix.cpp > CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/athet/CLionProjects/git/Lb_OOP_2/Matrix.cpp > CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.i
 
 CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/athet/CLionProjects/Lb_OOP_2/Matrix.cpp -o CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/athet/CLionProjects/git/Lb_OOP_2/Matrix.cpp -o CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.s
 
 # Object files for target Lb_OOP_2
 Lb_OOP_2_OBJECTS = \
@@ -95,7 +95,7 @@ Lb_OOP_2: CMakeFiles/Lb_OOP_2.dir/main.cpp.o
 Lb_OOP_2: CMakeFiles/Lb_OOP_2.dir/Matrix.cpp.o
 Lb_OOP_2: CMakeFiles/Lb_OOP_2.dir/build.make
 Lb_OOP_2: CMakeFiles/Lb_OOP_2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/athet/CLionProjects/Lb_OOP_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Lb_OOP_2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/athet/CLionProjects/git/Lb_OOP_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Lb_OOP_2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Lb_OOP_2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +108,6 @@ CMakeFiles/Lb_OOP_2.dir/clean:
 .PHONY : CMakeFiles/Lb_OOP_2.dir/clean
 
 CMakeFiles/Lb_OOP_2.dir/depend:
-	cd /home/athet/CLionProjects/Lb_OOP_2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/athet/CLionProjects/Lb_OOP_2 /home/athet/CLionProjects/Lb_OOP_2 /home/athet/CLionProjects/Lb_OOP_2/cmake-build-debug /home/athet/CLionProjects/Lb_OOP_2/cmake-build-debug /home/athet/CLionProjects/Lb_OOP_2/cmake-build-debug/CMakeFiles/Lb_OOP_2.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/athet/CLionProjects/git/Lb_OOP_2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/athet/CLionProjects/git/Lb_OOP_2 /home/athet/CLionProjects/git/Lb_OOP_2 /home/athet/CLionProjects/git/Lb_OOP_2/cmake-build-debug /home/athet/CLionProjects/git/Lb_OOP_2/cmake-build-debug /home/athet/CLionProjects/git/Lb_OOP_2/cmake-build-debug/CMakeFiles/Lb_OOP_2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Lb_OOP_2.dir/depend
 

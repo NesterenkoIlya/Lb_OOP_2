@@ -6,13 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/athet/CLionProjects/Lb_OOP_2/Matrix.h
+/home/athet/CLionProjects/git/Lb_OOP_2/Matrix.cpp
+Matrix.h
+/home/athet/CLionProjects/git/Lb_OOP_2/Matrix.h
+cassert
+-
+
+/home/athet/CLionProjects/git/Lb_OOP_2/Matrix.h
 iostream
 -
 time.h
 -
-
-/home/athet/CLionProjects/Lb_OOP_2/main.cpp
-Matrix.h
-/home/athet/CLionProjects/Lb_OOP_2/Matrix.h
 
