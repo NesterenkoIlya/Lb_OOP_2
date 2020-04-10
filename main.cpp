@@ -39,9 +39,9 @@ int main(){
     cout << endl;
 
     cout << "Транспонированая Матрица 1:\n";
-    mtrx_1.Matrix_transp();
+    mtrx_1.Matrix_transp(res);
     cout << "Транспонированая Матрица 2:\n";
-    mtrx_2.Matrix_transp();
+    mtrx_2.Matrix_transp(res);
 
     Matrix def, def2;           //Объект создан с помощю конструктора по умолчанию
 

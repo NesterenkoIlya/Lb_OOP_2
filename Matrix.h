@@ -7,7 +7,7 @@ using namespace std;
 class Matrix {
     const int size = 3;
     int random;
-    static int counter;                                 //Счетчик
+    static int counter;     //Счетчик
 public:
     int **Mtrx;
 
@@ -24,7 +24,7 @@ public:
     void Matrix_inc (int, Matrix*);     //Умножение матрицы на число
     bool Matrix_cmp (Matrix&);          //Сравнение матриц
     int Matrix_det ();                  //Определитель матрицы
-    void Matrix_transp();               //Транспонирование матрицы
+    void Matrix_transp(Matrix*);        //Транспонирование матрицы
     static void get_counter();          //Вывод счетчика
 
     friend ostream& operator<< (ostream&, const Matrix&);   //Вывод матрицы
@@ -32,7 +32,6 @@ public:
     Matrix& operator= (Matrix&);                            //Присваивание одной матрице значений другой
     void operator+ (const Matrix&);                         //Сумма Матриц
     void operator+ (int);                                   //Сумма матрицы и числа
-    void operator* (const Matrix&);                         //Умножение Матриц
     void operator* (int);                                   //Умножение матрицы на число
 
     ~Matrix();  //Деструктор

@@ -3,11 +3,12 @@
 /*
  * КОНСТРУКТОРЫ
  */
-
-//Конструктор по умолчанию
-Matrix::Matrix() {
+/*
+ * Конструктор по умолчанию
+ * При вызове создает матрицу и заполняет ее случайными числами до 26
+ */
+Matrix::Matrix() { random = 26;
     counter++;
-    random = 26;
     Matrix_create();
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
@@ -46,9 +47,9 @@ Matrix::Matrix(int s, int r) : size(s), random(r) {
  * Для переменной size используется инициализация так как это поле константное
  * random инициализируется в теле конструктора
  */
-Matrix::Matrix(const Matrix &matrix) {
-    counter++;
+Matrix::Matrix(const Matrix &matrix) : size(matrix.size) {
     random = matrix.random;
+    counter++;
     Matrix_create();
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
@@ -70,10 +71,10 @@ void Matrix::Matrix_create() {
 void Matrix::Matrix_print() {
     for (int i(0); i < size; i++) {
         for (int j(0); j < size; j++)
-            cout<<Mtrx[i][j]<<" ";
-        cout<<endl;
+            cout << Mtrx[i][j] << " ";
+        cout << endl;
     }
-    cout<<endl;
+    cout << endl;
 }
 
 //Сумма матриц
@@ -83,13 +84,10 @@ void Matrix::Matrix_sum(Matrix& b, Matrix* res) {
         return;
     }
     res = new Matrix(size, 1);
-
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
             res->Mtrx[i][j] = Mtrx[i][j] + b.Mtrx[i][j];
-
     res->Matrix_print();
-
     delete res;
     res = nullptr;
 }
@@ -97,13 +95,10 @@ void Matrix::Matrix_sum(Matrix& b, Matrix* res) {
 //Сумма матрицы и числа
 void Matrix::Matrix_sum (int num, Matrix* res) {
     res = new Matrix(size, 1);
-
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
             res->Mtrx[i][j] = Mtrx[i][j] + num;
-
     res->Matrix_print();
-
     delete res;
     res = nullptr;
 }
@@ -114,18 +109,14 @@ void Matrix::Matrix_inc (Matrix& b, Matrix* res) {
         cout << "Sizes doesn't match -> Increase imposible\n";
         return;
     }
-
     res = new Matrix(size, 1);
-
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++) {
             res->Mtrx[i][j] = 0;
             for(int k(0); k < size; k++)
                 res->Mtrx[i][j] += Mtrx[i][k] * b.Mtrx[k][j];
         }
-
     res->Matrix_print();
-
     delete res;
     res = nullptr;
 }
@@ -133,13 +124,10 @@ void Matrix::Matrix_inc (Matrix& b, Matrix* res) {
 //Умножение матрицы на число
 void Matrix::Matrix_inc (int num, Matrix* res) {
     res = new Matrix(size, 1);
-
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
             res->Mtrx[i][j] = Mtrx[i][j] * num;
-
     res->Matrix_print();
-
     delete res;
     res = nullptr;
 }
@@ -157,28 +145,27 @@ bool Matrix::Matrix_cmp (Matrix& b) {
 //Определитель матрицы
 int Matrix::Matrix_det() {
     if(size != 3) {
-        cout << "Size must be equal 3 to find deterine" << endl;
+        cout << "Size must be equal 3 to find determine" << endl;
         return 0;
     }
-    return Mtrx[0][0]*Mtrx[1][1]*Mtrx[2][2] + Mtrx[0][1]*Mtrx[1][2]*Mtrx[2][0] + Mtrx[0][2]*Mtrx[1][0]*Mtrx[2][1]
-           - Mtrx[0][2]*Mtrx[1][1]*Mtrx[2][0] - Mtrx[0][0]*Mtrx[1][2]*Mtrx[2][1] - Mtrx[0][1]*Mtrx[1][0]*Mtrx[2][2];
+    return Mtrx[0][0] * Mtrx[1][1] * Mtrx[2][2] + Mtrx[0][1] * Mtrx[1][2] * Mtrx[2][0] + Mtrx[0][2] * Mtrx[1][0] * Mtrx[2][1]
+         - Mtrx[0][2] * Mtrx[1][1] * Mtrx[2][0] - Mtrx[0][0] * Mtrx[1][2] * Mtrx[2][1] - Mtrx[0][1] * Mtrx[1][0] * Mtrx[2][2];
 }
 
 //Транспонирование матрицы
-void Matrix::Matrix_transp() {
-    int tmp;
-    for (int i(1); i < size; i++)
-        for (int j(0); j < size-1; j++) {
-            tmp = Mtrx[i][j];
-            Mtrx [i][j] = Mtrx[j][i];
-            Mtrx[j][i] = tmp;
-        }
-    Matrix_print();
+void Matrix::Matrix_transp(Matrix *res) {
+    res = new Matrix(size, 1);
+    for (int i(0); i < size; i++)
+        for (int j(0); j < size; j++)
+            res->Mtrx[i][j] = Mtrx[j][i];
+    res->Matrix_print();
+    delete res;
+    res = nullptr;
 }
 
 //Вывод счетчика в консоль
 void Matrix::get_counter() {
-    cout << "Всего объектов класса Matrix:" << counter << endl;
+    cout << "Всего объектов класса Matrix: " << counter << endl;
 }
 
 /*
@@ -186,27 +173,24 @@ void Matrix::get_counter() {
  */
 //Перегрузка оператора << для вывода матрицы в консоль
 ostream& operator<<(ostream &out, const Matrix &m) {
-    out << "Overloaded operator << for outputting Mtrx\n";
+    out << "Overloaded operator <<\n";
     for (int i(0); i < m.size; i++) {
         for (int j(0); j < m.size; j++)
-            out<<m.Mtrx[i][j]<<" ";
-        out<<endl;
+            out << m.Mtrx[i][j] << " ";
+        out << endl;
     }
     out << endl;
-
     return out;
 }
 
 //Перегрузка оператора >> для ввода матрицы с консоли
 istream& operator>>(istream &in, Matrix &m) {
-    cout << "Overloaded operator >> for inputting Mtrx\n";
+    cout << "Overloaded operator >>\n";
     cout << "Введите Матрицу " << m.size << "x" << m.size << ":\n";
-    for (int i(0); i < m.size; i++) {
+    for (int i(0); i < m.size; i++)
         for (int j(0); j < m.size; j++)
             in >> m.Mtrx[i][j];
-    }
     cout << endl;
-
     return in;
 }
 
@@ -218,9 +202,7 @@ Matrix& Matrix::operator=(Matrix &matrix) {
                 Mtrx[i][j] = matrix.Mtrx[i][j];
     else
         cout << "Sizes doesn't match" << endl;
-
-    cout << "Overloaded operator = for Matrix obj and Matrix obj\n";
-
+    cout << "Overloaded operator =\n";
     return *this;
 }
 
@@ -229,7 +211,7 @@ void Matrix::operator+ (int num) {
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
             Mtrx[i][j] += num;
-    cout << "Overloaded operator + for Matrix obj and num\n";
+    cout << "Overloaded operator +\n";
 }
 
 //Перегрузка оператора + для суммирования одной матрицы с другой
@@ -241,7 +223,7 @@ void Matrix::operator+ (const Matrix &matrix) {
     for (int i(0); i < size; i++)
         for (int j(0); j < size; j++)
             Mtrx[i][j] += matrix.Mtrx[i][j];
-    cout << "Overloaded operator + for Matrix obj and Matrix obj\n";
+    cout << "Overloaded operator +\n";
 }
 
 //Перегрузка оператора * для умножения матрицы на число
